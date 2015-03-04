@@ -1,0 +1,71 @@
+
+*** Rbl Report (web) ***
+- Toda pagina tem uma tabela com filtros dinamicos
+- Pagina inicial exibe o status mais rescente de cada ip
+- Historico geral
+- Historico especifico por rbl, ip, server, pool, ambient
+
+
+*** python manage.py rblchecker ***
+
+- Checagem que retorna Timeout, nao salva no historico
+- tratamento de senderscore para gerar status Normal, Warning, Critical, Unknown
+- Se o ultimo status for igual ao checado, nao salva no historico
+- Para cada IP sao disparadas threads para checar todas RBLs cadastrados
+- Valida conexao com o banco de dados
+
+
+*** TODO ***
+exibir data
+1 a x de x 
+initial pagination
+criar ordenacao
+data hist
+layout principal
+pagination limit number of pages
+pesquisa pela URL
+Filter mess up with pagination
+Reorganize
+titles
+DistinctStatusObj need to be fixed
+enter to filter
+regexp to filter
+centralize pagination on the table
+take link out (Made a link to the lookup page of each rbl)
+pagination raise exception when using regex (*)
+mutiple select
+filter by date range
+pagination has a bug when showing many pages and filter again with less pages.
+add other graphics
+integrate graphics with main search
+
+
+*** THINK ABOUT ***
+-https://github.com/pgollakota/django-chartit -  http://www.chartjs.org/ -  http://www.flotcharts.org/
+-new admin layout
+-test
+-koding ??
+-Internationalization - translation
+
+
+
+- quando da Timeout, esta reetirando o last do que deu timeout
+
+- Quando instala colocar mensagem de como configurar IPs e executar.
+"The filter applied did not return anything."
+
+- Corrigir script gerando varios rbl rcode.
+Sender Score gerando varios "99"
+
+
+
+    Psbl    False   psbl.surriel.com    DNS     http://psbl.org/listing?list=PSBL+list+query&ip=
+    Trend Micro False   https://ers.trendmicro.com/reputations/index?ip_address=    HTTP    class="link" target="_blank">(.*)</a>   https://ers.trendmicro.com/reputations/index?ip_address=
+    SpamHaus    True    zen.spamhaus.org    DNS     http://www.spamhaus.org/query/ip/
+    Sender Score    False   score.senderscore.com   DNS     https://senderscore.org/lookup.php?ipLookup=Go&lookup=
+    rbl.mail.sys.intranet   True    rbl.mail.sys.intranet   DNS     (None)
+    Sorbs New   True    new.spam.dnsbl.sorbs.net    DNS     http://www.sorbs.net/lookup.shtml?
+    SpamCop False   bl.spamcop.net  DNS     http://www.spamcop.net/bl.shtml?
+    Sorbs   True    dnsbl.sorbs.net DNS     http://www.sorbs.net/lookup.shtml?
+8 rbls
+
