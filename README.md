@@ -38,21 +38,19 @@ $ python3 manage.py ipsearch 127.0.0.2
 
 or access in a browser running the server
 ```
-python3 manage.py runserver
+$ python3 manage.py runserver
 ```
 
 Check ip on any rbl on database
-```
-[http://127.0.0.1:8000/iplookup/127.0.0.2/blacklist/all](http://127.0.0.1:8000/iplookup/127.0.0.2/blacklist/all)
-```
+<http://127.0.0.1:8000/iplookup/127.0.0.2/blacklist/all>
+
+
 or check ip specifying rbl
-```
-[http://127.0.0.1:8000/iplookup/127.0.0.2/blacklist/zen.spamhaus.org](http://127.0.0.1:8000/iplookup/127.0.0.2/blacklist/zen.spamhaus.org)
-```
+<http://127.0.0.1:8000/iplookup/127.0.0.2/blacklist/zen.spamhaus.org>
+
 
 or admin it
-```
-[http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
-```
+<http://127.0.0.1:8000/admin/>
+
 
 ---
