@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import sys
 import json
 import re
 import ipaddress
@@ -17,15 +16,17 @@ class DNSLookup(Thread):
         self.listed = listed
         self.dnslist = dnslist
         self.resolver = Resolver()
-        self.resolver.timeout = 0.5
-        self.resolver.lifetime = 1.0
-        self.nameservers = []
-    
+        self.resolver.timeout = 1.0
+        self.resolver.lifetime = 1.5
+        self.nameservers = self.resolver.nameservers
+
     def run(self):
         self.getTwoNameServers()
         if self.nameservers:
             self.resolver.nameservers = self.nameservers
 
+        self.listed[self.dnslist]['METADATA'] = {}
+        self.listed[self.dnslist]['METADATA']['NS'] = self.nameservers
         self.listed[self.dnslist]['RCODE'] = []
         host_record = self.DNSQuery(self.host, 'A')
         if host_record['ERROR']:
@@ -34,6 +35,7 @@ class DNSLookup(Thread):
         else:
             self.listed[self.dnslist]['ERROR'] = False
             self.listed[self.dnslist]['LISTED'] = True
+            self.listed[self.dnslist]['TTL'] = host_record['TTL']
             for rcode in host_record['RESPONSE']:
                 self.listed[self.dnslist]['RCODE'].append(rcode.address)
             self.listed[self.dnslist]['TEXT'] = []
@@ -42,13 +44,15 @@ class DNSLookup(Thread):
             if not host_record['ERROR']:
                 for rcode in host_record['RESPONSE']:
                     for rcode_uniq in rcode.strings:
-                        self.listed[self.dnslist]['TEXT'].append(rcode_uniq.decode("utf-8"))
+                        self.listed[self.dnslist]['TEXT'].append(
+                            rcode_uniq.decode("utf-8"))
 
     def DNSQuery(self, domain, query_type):
         try:
             dns_response = {}
             dnsr = self.resolver.query(domain, query_type)
             dns_response['RESPONSE'] = dnsr
+            dns_response['TTL'] = dnsr.rrset.ttl
             dns_response['ERROR'] = False
         except NXDOMAIN:
             dns_response['ERROR'] = True
@@ -70,6 +74,7 @@ class DNSLookup(Thread):
     def getTwoNameServers(self):
         host_record = self.DNSQuery(self.dnslist, 'NS')
         if not host_record['ERROR']:
+            self.nameservers = []
             for rcode in host_record['RESPONSE'][:2]:
                 host_record = self.DNSQuery(rcode.target, 'A')
                 if not host_record['ERROR']:
@@ -96,25 +101,24 @@ class RBLSearch(object):
         if self._listed is None:
             reversed_ip = self.getIpReversed()
             self._listed = {'SEARCH_HOST': self.lookup_ip}
-            self._listed['DATE_TIME'] = datetime.now(timezone('America/Sao_Paulo')).strftime("%Y-%m-%dT%H:%M:%S%z")
+            self._listed['DATE_TIME'] = datetime.now(
+                timezone('America/Sao_Paulo')).strftime("%Y-%m-%dT%H:%M:%S%z")
             threads = []
             for rbl in self.lookup_rbls:
                 self._listed[rbl] = {'LISTED': False}
-                query = DNSLookup("%s.%s" % (reversed_ip, rbl), rbl, self._listed)
+                query = DNSLookup("%s.%s" % (reversed_ip, rbl),
+                                  rbl,
+                                  self._listed
+                                  )
                 threads.append(query)
                 query.start()
             for thread in threads:
                 thread.join()
         return self._listed
     listed = property(search)
-    
+
     def json_results(self):
-        return json.dumps(self.listed)
-        
+        return self.listed
+
     def print_json(self):
         print(json.dumps(self.listed))
-
-
-
-
-

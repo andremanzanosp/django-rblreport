@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% block blockbots %}
+    <meta name="robots" content="NONE,NOARCHIVE" />
+    {% endblock blockbots %}
+    <title>{% block title %}Rbl Report{% endblock title %}</title>
+  </head>
+{% load i18n %}
+
+<body>
+    <div id="wrap">
+    
+      {% block navbar %}
+      {% endblock navbar %}
+      
+      <div class="container">
+        {% block content %}{% endblock content %}
+      </div>
+    </div>
+</body>
+</html>

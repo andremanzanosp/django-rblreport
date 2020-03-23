@@ -14,7 +14,7 @@
     "name": "Sender Score",
     "link": "https://senderscore.org/lookup.php?ipLookup=Go&lookup=",
     "address": "score.senderscore.com",
-    "active": true
+    "active": false
   },
   "model": "iplookup.rbl",
   "pk": 2
@@ -24,7 +24,7 @@
     "name": "Sorbs New",
     "link": "http://www.sorbs.net/lookup.shtml?",
     "address": "new.spam.dnsbl.sorbs.net",
-    "active": true
+    "active": false
   },
   "model": "iplookup.rbl",
   "pk": 3
@@ -34,7 +34,7 @@
     "name": "Sorbs",
     "link": "http://www.sorbs.net/lookup.shtml?",
     "address": "dnsbl.sorbs.net",
-    "active": true
+    "active": false
   },
   "model": "iplookup.rbl",
   "pk": 4
@@ -44,7 +44,7 @@
     "name": "SpamCop",
     "link": "http://www.spamcop.net/bl.shtml?",
     "address": "bl.spamcop.net",
-    "active": true
+    "active": false
   },
   "model": "iplookup.rbl",
   "pk": 5
@@ -54,9 +54,17 @@
     "name": "Psbl",
     "link": "http://psbl.org/listing?list=PSBL+list+query&ip=",
     "address": "psbl.surriel.com",
-    "active": true
+    "active": false
   },
   "model": "iplookup.rbl",
   "pk": 6
+},
+{
+  "fields": {
+    "ipaddress": "127.0.0.2",
+    "active": true
+  },
+  "model": "iplookup.ip",
+  "pk": 1
 }
 ]

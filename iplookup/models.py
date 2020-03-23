@@ -22,8 +22,36 @@ class Rbl(models.Model):
                             verbose_name="Rbl link"
                             )
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def is_active(self):
         return self.active
+
+
+
+class Ip(models.Model):
+    '''
+    Class used to interact with the database
+    Table "Ip" keeps the existing Ips
+    '''
+    active = models.BooleanField(default=False,
+                                 verbose_name="Active"
+                                 )
+    ipaddress = models.GenericIPAddressField(unique=True,
+                                             verbose_name="Ip address"
+                                             )
+
+    def __str__(self):
+        return self.ipaddress
+
+
+
+# class StatusHistoric(models.Model):
+#     ip = models.ForeignKey(Ip)
+#     rbl = models.ForeignKey(Rbl)
+#     date = models.DateTimeField(auto_now_add=True)
+
+#     def __str__(self):
+#         retorno = self.ip, self.rbl, self.date
+#         return str(retorno)

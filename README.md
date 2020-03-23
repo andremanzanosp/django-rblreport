@@ -1,6 +1,6 @@
 # django-rblreport
 Intend to monitor many ips in many RBLs and get online report.
-For now it is checking a ip against many rbls.
+For now it is checking an ip against many rbls.
 
 
 ## Dependencies:
