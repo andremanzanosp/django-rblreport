@@ -1,0 +1,126 @@
+[
+{
+   "model":"auth.user",
+   "pk":1,
+   "fields":{
+      "password":"pbkdf2_sha256$180000$otyuhqhTsMn1$bJRwkSgNwSGO6pnPsBJ2kl/1Hk9zpj1/dDNeeJoBauk=",
+      "last_login":"2020-04-10T00:00:00.000Z",
+      "is_superuser":true,
+      "username":"admin",
+      "first_name":"",
+      "last_name":"",
+      "email":"",
+      "is_staff":true,
+      "is_active":true,
+      "date_joined":"2020-04-10T00:00:00.000Z",
+      "groups":[
+
+      ],
+      "user_permissions":[
+
+      ]
+   }
+},
+{
+  "fields": {
+    "name": "SpamHaus",
+    "link": "http://www.spamhaus.org/query/ip/",
+    "address": "zen.spamhaus.org",
+    "updated_date": "2020-04-10T00:00:00.000Z",
+    "is_active": true
+  },
+  "model": "coredata.rbl",
+  "pk": 1
+},
+{
+  "fields": {
+    "name": "Sender Score",
+    "link": "https://senderscore.org/lookup.php?ipLookup=Go&lookup=",
+    "address": "score.senderscore.com",
+    "updated_date": "2020-04-10T00:00:00.000Z",
+    "is_active": false
+  },
+  "model": "coredata.rbl",
+  "pk": 2
+},
+{
+  "fields": {
+    "name": "Sorbs New",
+    "link": "http://www.sorbs.net/lookup.shtml?",
+    "address": "new.spam.dnsbl.sorbs.net",
+    "updated_date": "2020-04-10T00:00:00.000Z",
+    "is_active": false
+  },
+  "model": "coredata.rbl",
+  "pk": 3
+},
+{
+  "fields": {
+    "name": "Sorbs",
+    "link": "http://www.sorbs.net/lookup.shtml?",
+    "address": "dnsbl.sorbs.net",
+    "updated_date": "2020-04-10T00:00:00.000Z",
+    "is_active": false
+  },
+  "model": "coredata.rbl",
+  "pk": 4
+},
+{
+  "fields": {
+    "name": "SpamCop",
+    "link": "http://www.spamcop.net/bl.shtml?",
+    "address": "bl.spamcop.net",
+    "updated_date": "2020-04-10T00:00:00.000Z",
+    "is_active": false
+  },
+  "model": "coredata.rbl",
+  "pk": 5
+},
+{
+  "fields": {
+    "name": "Psbl",
+    "link": "http://psbl.org/listing?list=PSBL+list+query&ip=",
+    "address": "psbl.surriel.com",
+    "updated_date": "2020-04-10T00:00:00.000Z",
+    "is_active": false
+  },
+  "model": "coredata.rbl",
+  "pk": 6
+},
+{
+  "fields": {
+    "ipaddress": "127.0.0.2",
+    "updated_date": "2020-04-10T00:00:00.000Z",
+    "is_active": true
+  },
+  "model": "coredata.ip",
+  "pk": 1
+},
+{
+  "fields": {
+    "ipaddress": "191.241.111.8",
+    "updated_date": "2020-04-10T00:00:00.000Z",
+    "is_active": true
+  },
+  "model": "coredata.ip",
+  "pk": 2
+},
+{
+  "fields": {
+    "ipaddress": "191.241.111.1",
+    "updated_date": "2020-04-10T00:00:00.000Z",
+    "is_active": true
+  },
+  "model": "coredata.ip",
+  "pk": 3
+},
+{
+  "fields": {
+    "ipaddress": "177.153.28.71",
+    "updated_date": "2020-04-10T00:00:00.000Z",
+    "is_active": true
+  },
+  "model": "coredata.ip",
+  "pk": 4
+}
+]

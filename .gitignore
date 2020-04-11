@@ -1,3 +1,12 @@
+# Lixo util
+old/
+
+# Django db
+db.sqlite3
+
+# Mac
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

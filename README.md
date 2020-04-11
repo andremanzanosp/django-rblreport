@@ -23,10 +23,8 @@ Load initial data
 $ python3 manage.py loaddata initial_data
 ```
 
-Create superuser
-```
-$ python3 manage.py createsuperuser
-```
+*A superuser will be created with the loaddata
+
 
 
 ## Usage 
