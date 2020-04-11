@@ -23,22 +23,39 @@ Load initial data
 $ python3 manage.py loaddata initial_data
 ```
 
-*A superuser will be created with the loaddata
+* A superuser will be created with the loaddata
 
 
 
 ## Usage 
 
-You can run a management command
+
+### Management command
+
+You can run on a terminal
 ```
-$ python3 manage.py ipsearch 127.0.0.2
+$ python3 manage.py ipsearch --ips 127.0.0.2 192.168.0.1 --rbls zen.spamhaus.org
 ```
 
-or access in a browser running the server
+
+### API
+
+Start server
 ```
 $ python3 manage.py runserver
 ```
 
+Interact with ips
+<http://127.0.0.1:8000/ips/>
+
+Interact with rbls
+<http://127.0.0.1:8000/rbls/>
+
+or admin
+<http://127.0.0.1:8000/admin/>
+
+
+### OLD
 Check ip on any rbl on database
 <http://127.0.0.1:8000/iplookup/127.0.0.2/blacklist/all>
 
@@ -46,9 +63,6 @@ Check ip on any rbl on database
 or check ip specifying rbl
 <http://127.0.0.1:8000/iplookup/127.0.0.2/blacklist/zen.spamhaus.org>
 
-
-or admin it
-<http://127.0.0.1:8000/admin/>
 
 
 ---
