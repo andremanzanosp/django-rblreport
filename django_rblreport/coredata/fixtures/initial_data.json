@@ -1,0 +1,220 @@
+[
+{
+   "model":"auth.user",
+   "pk":1,
+   "fields":{
+      "password":"pbkdf2_sha256$180000$otyuhqhTsMn1$bJRwkSgNwSGO6pnPsBJ2kl/1Hk9zpj1/dDNeeJoBauk=",
+      "last_login":"2020-04-10T00:00:00.000000Z",
+      "is_superuser":true,
+      "username":"admin",
+      "first_name":"",
+      "last_name":"",
+      "email":"",
+      "is_staff":true,
+      "is_active":true,
+      "date_joined":"2020-04-10T00:00:00.000000Z",
+      "groups":[
+
+      ],
+      "user_permissions":[
+
+      ]
+   }
+},
+{
+   "model":"auth.user",
+   "pk":2,
+   "fields":{
+      "password":"pbkdf2_sha256$180000$eSNZKbMXeR04$fFG96MIEWhrNiZaGzIBo5lEni28hFeQlnkt7NFP04Ic=",
+      "last_login":null,
+      "is_superuser":true,
+      "username":"andre",
+      "first_name":"",
+      "last_name":"",
+      "email":"",
+      "is_staff":true,
+      "is_active":true,
+      "date_joined":"2020-04-10T00:00:00.000000Z",
+      "groups":[
+
+      ],
+      "user_permissions":[
+
+      ]
+   }
+},
+{
+  "fields": {
+    "name": "SpamHaus",
+    "link": "http://www.spamhaus.org/query/ip/",
+    "address": "zen.spamhaus.org",
+    "created": "2020-04-10T00:00:00.000000Z",
+    "updated": "2020-04-10T00:00:00.000000Z",
+    "is_active": true
+  },
+  "model": "coredata.rbl",
+  "pk": 1
+},
+{
+  "fields": {
+    "name": "Sender Score",
+    "link": "https://senderscore.org/lookup.php?ipLookup=Go&lookup=",
+    "address": "score.senderscore.com",
+    "created": "2020-04-10T00:00:00.000000Z",
+    "updated": "2020-04-10T00:00:00.000000Z",
+    "is_active": false
+  },
+  "model": "coredata.rbl",
+  "pk": 2
+},
+{
+  "fields": {
+    "name": "Sorbs New",
+    "link": "http://www.sorbs.net/lookup.shtml?",
+    "address": "new.spam.dnsbl.sorbs.net",
+    "created": "2020-04-10T00:00:00.000000Z",
+    "updated": "2020-04-10T00:00:00.000000Z",
+    "is_active": false
+  },
+  "model": "coredata.rbl",
+  "pk": 3
+},
+{
+  "fields": {
+    "name": "Sorbs",
+    "link": "http://www.sorbs.net/lookup.shtml?",
+    "address": "dnsbl.sorbs.net",
+    "created": "2020-04-10T00:00:00.000000Z",
+    "updated": "2020-04-10T00:00:00.000000Z",
+    "is_active": false
+  },
+  "model": "coredata.rbl",
+  "pk": 4
+},
+{
+  "fields": {
+    "name": "SpamCop",
+    "link": "http://www.spamcop.net/bl.shtml?",
+    "address": "bl.spamcop.net",
+    "created": "2020-04-10T00:00:00.000000Z",
+    "updated": "2020-04-10T00:00:00.000000Z",
+    "is_active": false
+  },
+  "model": "coredata.rbl",
+  "pk": 5
+},
+{
+  "fields": {
+    "name": "Psbl",
+    "link": "http://psbl.org/listing?list=PSBL+list+query&ip=",
+    "address": "psbl.surriel.com",
+    "created": "2020-04-10T00:00:00.000000Z",
+    "updated": "2020-04-10T00:00:00.000000Z",
+    "is_active": false
+  },
+  "model": "coredata.rbl",
+  "pk": 6
+},
+{
+  "fields": {
+    "ipaddress": "127.0.0.2",
+    "owner": 2,
+    "created": "2020-04-10T00:00:00.000000Z",
+    "updated": "2020-04-10T00:00:00.000000Z",
+    "is_active": true
+  },
+  "model": "coredata.ip",
+  "pk": 1
+},
+{
+  "fields": {
+    "ipaddress": "191.241.111.8",
+    "owner": 2,
+    "created": "2020-04-10T00:00:00.000000Z",
+    "updated": "2020-04-10T00:00:00.000000Z",
+    "is_active": true
+  },
+  "model": "coredata.ip",
+  "pk": 2
+},
+{
+  "fields": {
+    "ipaddress": "191.241.111.1",
+    "owner": 2,
+    "created": "2020-04-10T00:00:00.000000Z",
+    "updated": "2020-04-10T00:00:00.000000Z",
+    "is_active": true
+  },
+  "model": "coredata.ip",
+  "pk": 3
+},
+{
+  "fields": {
+    "ipaddress": "177.153.28.71",
+    "owner": 2,
+    "created": "2020-04-10T00:00:00.000000Z",
+    "updated": "2020-04-10T00:00:00.000000Z",
+    "is_active": true
+  },
+  "model": "coredata.ip",
+  "pk": 4
+},
+{
+   "model":"coredata.rblrcode",
+   "pk":1,
+   "fields":{
+      "code":"None",
+      "text":null,
+      "rbl":1
+   }
+},
+{
+   "model":"coredata.rblrcode",
+   "pk":2,
+   "fields":{
+      "code":"None",
+      "text":null,
+      "rbl":4
+   }
+},
+{
+  "model":"coredata.rblrcode",
+  "pk":3,
+  "fields":{
+     "code":"127.0.0.2",
+     "text":"https://www.spamhaus.org/query/ip/127.0.0.2",
+     "rbl":1
+  }
+},
+{
+  "model":"coredata.rblrcode",
+  "pk":4,
+  "fields":{
+     "code":"127.0.0.10",
+     "text":"See: http://www.sorbs.net/lookup.shtml?127.0.0.2",
+     "rbl":4
+  }
+},
+{
+  "model":"coredata.iprblhistoric",
+  "pk":1,
+  "fields":{
+     "ip":1,
+     "rblrcode":3,
+     "listed":true,
+     "ttl":6400,
+     "created":"2020-04-14T04:06:08.437Z"
+  }
+},
+{
+  "model":"coredata.iprblhistoric",
+  "pk":2,
+  "fields":{
+     "ip":1,
+     "rblrcode":1,
+     "listed":false,
+     "ttl":null,
+     "created":"2020-04-14T04:09:39.741Z"
+  }
+}
+]

@@ -5,7 +5,7 @@ For now it is checking an ip against many rbls.
 
 ## Dependencies:
 
-* [Python 3](https://www.python.org/downloads/)
+* [Python 3.9](https://www.python.org/downloads/)
 * [pip](https://pip.pypa.io/en/stable/installing/)
 ```
 pip3 install -r requirements.txt
@@ -14,16 +14,28 @@ pip3 install -r requirements.txt
 
 ## Creating envinronment 
 
+Create Python Virtual environment
+```
+python3 -m venv /path/app/venv
+source /path/app/venv/bin/activate
+```
+
+Install requirements
+```
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
 Create database
 ```
-$ python manage.py migrate
+python3 manage.py migrate
 ```
 Load initial data
 ```
-$ python3 manage.py loaddata initial_data
+python3 manage.py loaddata initial_data
 ```
 
-* A superuser will be created with the loaddata
+* A superuser will be created with the loaddata (admin/admin)
 
 
 
@@ -34,7 +46,7 @@ $ python3 manage.py loaddata initial_data
 
 You can run on a terminal
 ```
-$ python3 manage.py ipsearch --ips 127.0.0.2 192.168.0.1 --rbls zen.spamhaus.org
+python3 manage.py ipsearch --ips 127.0.0.2 192.168.0.1 --rbls zen.spamhaus.org
 ```
 
 
@@ -42,7 +54,11 @@ $ python3 manage.py ipsearch --ips 127.0.0.2 192.168.0.1 --rbls zen.spamhaus.org
 
 Start server
 ```
-$ python3 manage.py runserver
+python3 manage.py runserver
+```
+or
+```
+gunicorn --bind 0.0.0.0:8000 django_rblreport.wsgi:application -w 2 --log-level debug
 ```
 
 Interact with ips

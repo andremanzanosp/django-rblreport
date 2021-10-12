@@ -1,0 +1,29 @@
+version: '3'
+services:
+  rblreport:
+    build: .
+    hostname: rblreport
+    container_name: rblreport
+    ports:
+     - "8000:8000"
+    volumes:
+     - .:/rblreport
+    tty: true
+
+  # rabbitmq:
+  #   image: "rabbitmq:3-management"
+  #   hostname: rabbitmq
+  #   container_name: rabbitmq
+  #   ports:
+  #    - "8088:15672"
+  #    # - "8089:5672"
+  #   volumes:
+  #    - ./rabbitmq/rabbitmq-bin:/var/lib/rabbitmq
+  #   environment:
+  #     RABBITMQ_ERLANG_COOKIE: "SWWOKFFGTQALRPRFNMERG"
+  #     RABBITMQ_DEFAULT_USER: "rabbitmq"
+  #     RABBITMQ_DEFAULT_PASS: "rabbitmq"
+  #     RABBITMQ_DEFAULT_VHOST: "/"
+  #   networks:
+  #     testing_net:
+  #       ipv4_address: 172.28.1.1
